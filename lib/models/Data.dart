@@ -1,29 +1,42 @@
 import 'dart:convert';
 
 class Data {
-  String joke;
+  int id;
+  String name;
+  String category;
+  int price;
+  String img;
 
-  Data({this.joke});
+  Data({this.id, this.name, this.category, this.price, this.img});
 
-  factory Data.fromJson(String joke) {
-    return Data(joke: joke);
+  factory Data.fromJson(Map<String, dynamic> data) {
+    return Data(
+        id: data['id'],
+        name: data['name'],
+        category: data['category'],
+        price: data['price'],
+        img: data['img']);
   }
 
   Map<String, String> toJson() {
-    return {"value": joke};
+    return {
+      "id": "$id",
+      "name": name,
+      "category": category,
+      "price": "$price",
+      img: img
+    };
   }
 
   @override
   String toString() {
-    return 'Data{joke: $joke}';
+    return 'Data{id: $id, name: $name, category: $category, price: $price, img: $img}';
   }
 }
 
 List<Data> dataFromJson(String jsonData) {
-  final data = json.decode(jsonData);
-  print(data);
-  return List<Data>.from(
-      data['value'].map((data) => Data.fromJson(data['joke'])));
+  final response = json.decode(jsonData);
+  return List<Data>.from(response['data'].map((data) => Data.fromJson(data)));
 }
 
 String dataToJson(Data data) {

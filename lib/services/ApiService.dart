@@ -26,7 +26,7 @@ class ApiService {
     }
     try {
       Uri uri = Uri.http(baseUrl, '/menu/menu-items',
-          {'page': '1', 'perPage': '10', 'category': category});
+          {'page': '1', 'perPage': '50', 'category': category});
 
       final response = await client.get(uri);
       if (response.statusCode == 200) {

@@ -73,7 +73,7 @@ class ItemDetail extends StatelessWidget {
                                 },
                               ),
                               FlatButton(
-                                color: Colors.blue,
+                                color: Colors.green,
                                 child: Icon(Icons.add),
                                 onPressed: () {
                                   int currentTotal =
@@ -112,7 +112,7 @@ class ItemDetail extends StatelessWidget {
                               padding: EdgeInsets.only(
                                   left: 10, right: 10, bottom: 5),
                               child: MaterialButton(
-                                color: Colors.blue,
+                                color: Colors.green,
                                 onPressed: () {
                                   int total =
                                       int.parse(orderInputController.text);

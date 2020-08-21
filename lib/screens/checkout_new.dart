@@ -23,15 +23,31 @@ class CheckoutNew extends StatelessWidget {
       ),
       body: Builder(
           builder: (ctx) => Padding(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.all(10),
                 child: Form(
                     key: _formKey,
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 5,
+                        ),
                         TextFormField(
                           keyboardType: TextInputType.name,
-                          decoration: const InputDecoration(
-                            hintText: 'Masukan nama pemesan',
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Nama Pemesan',
+                            filled: true,
+                            fillColor: Colors.grey,
+                            contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 6.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
                           ),
                           validator: (value) {
                             if (value.isEmpty) {
@@ -43,11 +59,27 @@ class CheckoutNew extends StatelessWidget {
                             order.orderedBy = value;
                           },
                         ),
+                        SizedBox(
+                          height: 25,
+                        ),
                         TextFormField(
                           keyboardType:
                               TextInputType.numberWithOptions(signed: false),
-                          decoration: const InputDecoration(
-                            hintText: 'Masukan nomor meja',
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Nomor Meja',
+                            filled: true,
+                            fillColor: Colors.grey,
+                            contentPadding: const EdgeInsets.only(
+                                left: 14.0, bottom: 6.0, top: 8.0),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
                           ),
                           validator: (value) {
                             if (value.isEmpty) {
@@ -69,7 +101,7 @@ class CheckoutNew extends StatelessWidget {
                                     left: 10, right: 10, bottom: 5),
                                 child: MaterialButton(
                                     textColor: Colors.white,
-                                    color: Colors.blue,
+                                    color: Colors.green,
                                     onPressed: () {
                                       if (_formKey.currentState.validate()) {
                                         _formKey.currentState.save();

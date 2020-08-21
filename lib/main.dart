@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Nandjung Wangi',
           theme: ThemeData(
-              primarySwatch: Colors.blue,
+              primarySwatch: Colors.green,
               visualDensity: VisualDensity.adaptivePlatformDensity,
               fontFamily: 'Montserrat'),
           // home: MyHomePage(title: 'Nandjung Wangi'),

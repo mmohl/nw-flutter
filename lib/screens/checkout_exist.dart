@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nandjung_wangi_flutter/models/OrderWeb.dart';
 import 'package:nandjung_wangi_flutter/provider/Transaction.dart';
-import 'package:nandjung_wangi_flutter/screens/item_detail.dart';
 import 'package:nandjung_wangi_flutter/screens/order_tabs.dart';
 import 'package:nandjung_wangi_flutter/services/ApiService.dart';
 import 'package:provider/provider.dart';
@@ -118,7 +117,7 @@ Future<void> showSelectOrderDialog(BuildContext context, OrderWeb order) async {
           ),
           FlatButton(
             child: Text('Iya'),
-            color: Colors.blue,
+            color: Colors.green,
             onPressed: () {
               order.orders = _transaction.listOrders;
               service.addNewItemToOrder(order).then((message) => {

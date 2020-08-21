@@ -33,6 +33,7 @@ dependencies:
   provider:
   flutter_speed_dial:
   badges:
+  hexcolor:
 
 dev_dependencies:
   flutter_test:

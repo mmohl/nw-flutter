@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:nandjung_wangi_flutter/models/Data.dart';
 import 'package:http/http.dart' show Client;
 import 'package:nandjung_wangi_flutter/models/NewOrder.dart';
-import 'package:nandjung_wangi_flutter/models/Order.dart';
 import 'package:nandjung_wangi_flutter/models/OrderWeb.dart';
 
 class ApiService {

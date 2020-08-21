@@ -59,7 +59,7 @@ class Cart extends StatelessWidget {
               child: Align(
             alignment: FractionalOffset.bottomCenter,
             child: Container(
-              color: Colors.blue,
+              color: Colors.green,
               height: 30,
               alignment: Alignment.center,
               width: double.infinity,
@@ -127,7 +127,7 @@ Future<void> showRemoveItemDialog(BuildContext context, Order order) async {
           ),
           FlatButton(
             child: Text('Iya'),
-            color: Colors.blue,
+            color: Colors.green,
             onPressed: () {
               _transaction.deleteOrder(order.item);
               Navigator.of(context).pop();

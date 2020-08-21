@@ -22,6 +22,7 @@ class GridItem extends StatelessWidget {
           title: Text(
             item.name,
             textAlign: TextAlign.center,
+            style: TextStyle(fontFamily: 'Montserrat'),
           ),
         ),
       ),

@@ -6,8 +6,15 @@ class Data {
   String category;
   int price;
   String img;
+  String description;
 
-  Data({this.id, this.name, this.category, this.price, this.img});
+  Data(
+      {this.id,
+      this.name,
+      this.category,
+      this.price,
+      this.img,
+      this.description});
 
   factory Data.fromJson(Map<String, dynamic> data) {
     return Data(
@@ -15,7 +22,8 @@ class Data {
         name: data['name'],
         category: data['category'],
         price: data['price'],
-        img: data['img']);
+        img: data['img'],
+        description: data['description']);
   }
 
   Map<String, String> toJson() {
@@ -24,7 +32,8 @@ class Data {
       "name": name,
       "category": category,
       "price": "$price",
-      img: img
+      img: img,
+      description: description
     };
   }
 

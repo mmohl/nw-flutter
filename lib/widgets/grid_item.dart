@@ -14,7 +14,7 @@ class GridItem extends StatelessWidget {
       },
       child: GridTile(
         child: Image.network(
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeJdFAv-yuL608hmTmtZ6o9eUjTwzCA-u9ZQOnzqvONNxMhACX&s',
+          'http://192.168.0.100/images/${item.img}',
           fit: BoxFit.cover,
         ),
         footer: GridTileBar(

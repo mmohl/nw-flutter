@@ -6,7 +6,7 @@ import 'package:nandjung_wangi_flutter/models/NewOrder.dart';
 import 'package:nandjung_wangi_flutter/models/OrderWeb.dart';
 
 class ApiService {
-  final String baseUrl = "localhost:8080";
+  final String baseUrl = "192.168.0.100";
   Client client = Client();
 
   Future<List<Data>> getMenus(String category) async {
@@ -25,7 +25,7 @@ class ApiService {
         break;
     }
     try {
-      Uri uri = Uri.http("10.0.2.2:8080", '/menu/menu-items',
+      Uri uri = Uri.http(baseUrl, '/menu/menu-items',
           {'page': '1', 'perPage': '10', 'category': category});
 
       final response = await client.get(uri);
@@ -42,7 +42,7 @@ class ApiService {
   }
 
   Future<String> makeNewOrder(NewOrder newOrder) async {
-    Uri uri = Uri.http("10.0.2.2:8080", '/transaction/make-order');
+    Uri uri = Uri.http(baseUrl, '/transaction/make-order');
 
     try {
       final response = await client.post(uri,
@@ -64,7 +64,7 @@ class ApiService {
   }
 
   Future<List<OrderWeb>> getUnpaidOrderToday() async {
-    Uri uri = Uri.http("10.0.2.2:8080", '/transaction/unfinished-order-today');
+    Uri uri = Uri.http(baseUrl, '/transaction/unfinished-order-today');
 
     final response = await client.get(uri);
     if (response.statusCode == 200) {
@@ -83,7 +83,7 @@ class ApiService {
   }
 
   Future<String> addNewItemToOrder(OrderWeb order) async {
-    Uri uri = Uri.http("10.0.2.2:8080", '/transaction/add-new-items-order');
+    Uri uri = Uri.http(baseUrl, '/transaction/add-new-items-order');
 
     try {
       final response = await client.post(uri,

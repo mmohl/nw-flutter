@@ -19,10 +19,13 @@ class Cart extends StatelessWidget {
     Transaction _transaction = Provider.of<Transaction>(context);
     List<Order> orders = _transaction.listOrders;
     int total = 0;
+    double tax = 0;
 
     orders.forEach((e) {
       total += e.totalOrder * e.item.price;
     });
+
+    tax = total * 0.10;
 
     return Scaffold(
       appBar: AppBar(title: Text("Keranjang")),
@@ -41,14 +44,14 @@ class Cart extends StatelessWidget {
                               {showRemoveItemDialog(context, orders[index])},
                           // isThreeLine: true,
                           leading: Image.network(
-                            "http://192.168,0.100/images/${orders[index].item.img}",
+                            "http://192.168.0.100/images/${orders[index].item.img}",
                             width: 40,
                             height: 40,
                             fit: BoxFit.cover,
                           ),
                           title: Text(orders[index].item.name),
                           subtitle: Text(
-                            "${orders[index].totalOrder} X ${orders[index].item.price}",
+                            "${orders[index].totalOrder} X ${FlutterMoneyFormatter(settings: MoneyFormatterSettings(symbol: 'Rp', decimalSeparator: ',', thousandSeparator: '.'), amount: orders[index].item.price.toDouble()).output.symbolOnLeft}",
                             style: TextStyle(fontSize: 10),
                           ),
                         ),
@@ -65,13 +68,14 @@ class Cart extends StatelessWidget {
               width: double.infinity,
               child: Text(
                 FlutterMoneyFormatter(
-                        settings: MoneyFormatterSettings(
-                            symbol: 'Rp',
-                            decimalSeparator: ',',
-                            thousandSeparator: '.'),
-                        amount: total.toDouble())
-                    .output
-                    .symbolOnLeft,
+                            settings: MoneyFormatterSettings(
+                                symbol: 'Rp',
+                                decimalSeparator: ',',
+                                thousandSeparator: '.'),
+                            amount: total.toDouble() + tax)
+                        .output
+                        .symbolOnLeft +
+                    " (Pajak 10%)",
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
